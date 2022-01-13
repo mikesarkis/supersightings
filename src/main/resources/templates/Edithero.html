@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>SuperHero Manager</title>
+  </head>
+  <body>
+    <!-- Main Body of Page -->
+    <div class="container">
+        <div class="row m-4">
+            <div class="col text-center border border-dark">
+                <h1><a href="Home" class="text-dark">SupeHero Sighting Manager</a></h1>
+            </div>
+        </div>
+        <div class="row m-4 border border-dark">
+            <div class="col text-center m-3">
+                  <a href="Superpowers" class="btn btn-outline-primary btn-lg">SuperPowers</a>
+             </div>
+            <div class="col text-center m-3">
+                <a href="Heros" class="btn btn-outline-primary btn-lg">SuperHero/Villain</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Locations" class="btn btn-outline-primary btn-lg">Locations</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Sightings" class="btn btn-outline-primary btn-lg">Sights</a>
+            </div>
+        </div>
+    </div>  
+        <div class="row m-4 border border-dark">
+                <div class="col-3 text-center m-3">
+                    <span class="h3">Edit Hero</span>
+                </div>
+                <div class="col-7 text-center m-3">
+                    <form action="editHero" method="POST">
+                        <div class="form-group row">
+                            <label for="Name" class="col-3 col-form-label">
+                                 Name</label>
+                            <div class="col-9">
+                                <input type="text" name="Name" id="Name" 
+                                       class="form-control" th:value="${hero.Name}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Description" class="col-3 col-form-label">
+                                Description</label>
+                            <div class="col-9">
+                                <input type="text" name="Description" id="Description" 
+                                       class="form-control"  th:value="${hero.Description}"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Superpowerid" class="col-3 col-form-label">
+                                 Superpowerid</label>
+                            <div class="col-9">
+                                <input type="text" name="Superpowerid" id="Superpowerid" 
+                                       class="form-control" th:value="${hero.Superpowerid}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="isHero" class="col-3 col-form-label">
+                                is Hero</label>
+                            <div class="col-9">
+                                <input type="text" name="isHero" id="isHero" 
+                                       class="form-control" th:value="${hero.isHero}">
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" th:value="${hero.id}"/>
+                        <button type="submit" class="btn btn-primary">
+                            Update hero</button>
+                    </form>
+                </div>
+            </div>
+        </div>     
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

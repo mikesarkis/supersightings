@@ -1,0 +1,48 @@
+drop database if exists SuperheroSightingsSprindAppDB;
+create database SuperheroSightingsSprindAppDB;
+
+use SuperheroSightingsSprindAppDB;
+
+create table SuperPower(
+  ID int primary key auto_increment, 
+  description varchar(500) not null);
+
+create table HeroVillain( 
+   ID int primary Key AUTO_INCREMENT,
+   Name varchar (50) not null,
+   Description varchar(500) Not Null,
+   isHero boolean not null,
+   Superpowerid int,
+   FOREIGN KEY Superpowerid references SuperPower(ID));
+   
+create table Location(
+   ID int primary key auto_increment,
+   Name varchar (50) not null,
+   Description varchar(500) not null,
+   Address varchar (180) not null,
+   Longitude decimal(9,6) not null,
+   Latitude decimal(8,6) not null);
+   
+create table Organization(
+  ID int primary key auto_increment,
+  Name varchar(50) not null,
+  Description varchar(500) not null,
+  Address varchar(180),
+  ContactInfo varchar(75));
+  
+create table SightRecord(
+  HeroVillainID int not null,
+  LocationID int not null,
+  Date varchar(75) Not null,
+  PRIMARY KEY(HeroVillainID, LocationID),
+  FOREIGN KEY  (HeroVillainID) references HeroVillain(ID),
+  FOREIGN KEY  (LocationID) references Location(ID));
+      
+create table HeroVillainOrganization(
+  HeroVillainID int not null,
+  OrganizationID int not null,
+  PRIMARY KEY(HeroVillainID, OrganizationID),
+  FOREIGN KEY (HeroVillainID) references HeroVillain(ID),
+  FOREIGN KEY  (OrganizationID) references Organization(ID));
+
+

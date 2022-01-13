@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Home</title>
+  </head>
+  <body >
+    <!-- Main Body of Page -->
+    <div class="container">
+        <div class="row m-4">
+            <div class="col text-center border border-dark">
+                <h1><a href="Home" class="text-dark">SupeHero Sighting Manager</a></h1>
+            </div>
+        </div>
+        <div class="row m-4 border border-dark">
+            <div class="col text-center m-3">
+                  <a href="Superpowers" class="btn btn-outline-primary btn-lg">SuperPowers</a>
+             </div>
+            <div class="col text-center m-3">
+                <a href="Heros" class="btn btn-outline-primary btn-lg">SuperHero/Villain</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Organizations" class="btn btn-outline-primary btn-lg">Organizations</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Locations" class="btn btn-outline-primary btn-lg">Locations</a>
+            </div>
+            <div class="col text-center m-3">
+                <a href="Sightings" class="btn btn-outline-primary btn-lg">Sights</a>
+            </div>
+        </div>
+    </div>   
+            <img src="C:\Users\Mike\Documents\NetBeansProjects\SuperheroSightingsSpringApp\src\main\resources\templates\Images\DC-Comics-Logo.jpg" alt="Marvel" style="width:450px;height:300px;margin-left: 50px;">
+            <img src="C:\Users\Mike\Documents\NetBeansProjects\SuperheroSightingsSpringApp\src\main\resources\templates\Images\marvel-logo-header-1-768x400.jpg" alt="Marvel" style="width:450px;height:300px;margin-left: 120px;">
+            <br/>    <br/>
+            <p style="text-align:center;font-style: italic;color: red" >Welcome to our superhero sighting website.</p> </br> 
+                <p style="text-align:center;font-style: italic;color: #666666">You can view or add or edit or even delete a superhero or villian and the available superpowers by pressing on SuperHero/Villain button</p>
+                <p style="text-align:center;font-style: italic;color: #666666">You can view or add or edit or even delete a Organization by pressing on Organizations button</p>
+                <p style="text-align:center;font-style: italic;color: #666666">You can view or add or edit or even delete a location by pressing on Locations button</p>
+                <p style="text-align:center;font-style: italic;color: #666666">You can view or add or edit or even delete a Sight where a hero or a villain was seen by pressing on Sights Recording button</p>
+            <div class="row m-4 border border-dark">
+                <div class="col text-center m-3">
+                    <div class="col text-center ">
+                        <h3><a href="/"  style="color: #003399">Last 10 Sightings</a></h3>
+                  </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Location Name</th>
+                                <th>SuperHero / Villain Name</th>
+                                <th>SuperHero / Villain Superpower</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="sight : ${lastSightlist}">
+                                <td th:text="${sight.Location.Name}">Location Name</td>
+                                <td th:text="${sight.hero.Name}">Superhero/Villain Name </td>
+                                <td th:text="${sight.hero.Superpower}">Superhero/Villain Superpower </td>
+                                <td th:text="${sight.date}">Date</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    <!-- End main body -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
